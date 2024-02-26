@@ -17,7 +17,15 @@ app.use(
         credentials:true
     })
 )
+import userRoutes from './routes/user.routes.js';
+import errorMiddleware from './middlewares/error.middleware.js';
+
+app.use("/api/v1/user",userRoutes);
+app.use(errorMiddleware);
+
 app.use("/ping",(_req,res)=>{
     res.send("pong");
 })
+
+
 export default app;
