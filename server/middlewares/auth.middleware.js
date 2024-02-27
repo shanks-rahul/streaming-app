@@ -27,4 +27,5 @@ export const authorizedSubscriber=asyncHandler(async(req,res,next)=>{
     if(user.role!=="ADMIN" && user.subscription.status!=="ACTIVE"){
         return next(new AppError("Please subscribe to access this route.", 403));
     }
+    next();
 })
