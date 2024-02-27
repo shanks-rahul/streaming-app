@@ -2,6 +2,7 @@ import asyncHandler from "../middlewares/asynhandler.middleware.js";
 import User from "../models/user.model.js";
 import AppError from "../utils/AppError.js";
 import fs from 'fs/promises';
+import path from "path";
 import cloudinary from 'cloudinary';
 import sendEmail from "../utils/sendEmail.js";
 
