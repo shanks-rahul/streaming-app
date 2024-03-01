@@ -20,9 +20,13 @@ app.use(
 import userRoutes from './routes/user.routes.js';
 import movieRoutes from './routes/movie.routes.js';
 import errorMiddleware from './middlewares/error.middleware.js';
+import paymentRoutes from './routes/payment.routes.js';
+import miscellaneousRoutes from './routes/miscellaneous.routes.js';
 
 app.use("/api/v1/user",userRoutes);
 app.use("/api/v1/movies",movieRoutes);
+app.use("/api/v1/payment",paymentRoutes);
+app.use("/api/v1",miscellaneousRoutes);
 app.use(errorMiddleware);
 
 app.use("/ping",(_req,res)=>{
