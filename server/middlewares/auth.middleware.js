@@ -1,7 +1,7 @@
 import jwt from 'jsonwebtoken';
-import asyncHandler from './asynhandler.middleware';
-import AppError from '../utils/AppError';
-import User from '../models/user.model';
+import asyncHandler from './asynhandler.middleware.js';
+import AppError from '../utils/AppError.js';
+import User from '../models/user.model.js';
 
 export const isLoggedIn=asyncHandler(async(req,res,next)=>{
     const {token}=req.cookies;

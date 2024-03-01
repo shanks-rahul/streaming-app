@@ -1,5 +1,5 @@
-import asyncHandler from "../middlewares/asynhandler.middleware";
-import User from "../models/user.model";
+import asyncHandler from "../middlewares/asynhandler.middleware.js";
+import User from "../models/user.model.js";
 
 export const getStat=asyncHandler(async(req,res,next)=>{
     const UserCounts=await User.countDocuments();

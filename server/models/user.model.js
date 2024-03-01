@@ -3,7 +3,7 @@ import bycrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import crypto from 'crypto';
 
-const UserSchema=Schema.create({
+const UserSchema=new Schema({
     fullName:{
         required:[true,"FullName is required"],
         type:String,

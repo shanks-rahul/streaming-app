@@ -1,5 +1,5 @@
 import {Schema,model} from 'mongoose';
-const PaymentSchema=Schema.create({
+const PaymentSchema=new Schema({
     razorpay_payment_id:{
         type:String,
         required:true,

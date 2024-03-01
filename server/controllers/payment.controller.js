@@ -3,7 +3,7 @@ import { razorpay } from "../index.js";
 import asyncHandler from "../middlewares/asynhandler.middleware.js";
 import Payment from "../models/payment.model.js";
 import User from "../models/user.model.js";
-import AppError from "../utils/AppError";
+import AppError from "../utils/AppError.js";
 import crypto from "crypto";
 
 export const buySubscription=asyncHandler(async(req,res,next)=>{

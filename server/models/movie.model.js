@@ -1,6 +1,6 @@
 import { Schema, model } from "mongoose";
 import { stringify } from "querystring";
-const movieSchema = Schema.create({
+const movieSchema = new Schema({
     title: {
         type: String,
         required: [true, "Title is Required"],
@@ -46,7 +46,7 @@ const movieSchema = Schema.create({
         required:true,
     },
     producedBy:{
-        type:string,
+        type:String,
         required:true
     }
 });

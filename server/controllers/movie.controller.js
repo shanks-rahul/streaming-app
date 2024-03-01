@@ -3,9 +3,9 @@ import path from 'path';
 
 import cloudinary from 'cloudinary';
 
-import asyncHandler from "../middlewares/asynhandler.middleware";
-import Movie from "../models/movie.model";
-import AppError from "../utils/AppError";
+import asyncHandler from "../middlewares/asynhandler.middleware.js";
+import Movie from "../models/movie.model.js";
+import AppError from "../utils/AppError.js";
 
 export const getAllMovies=asyncHandler(async(req,res,next)=>{
     const movie=await Movie.findOne({}).select('-episodes');
