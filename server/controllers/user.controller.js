@@ -60,7 +60,7 @@ export const register = asyncHandler(async (req, res, next) => {
             );
         }
     }
-    await User.save();
+    await user.save();
 
     const token = await user.generateJWTtoken();
     user.password = undefined;
@@ -221,7 +221,7 @@ export const updateUser = asyncHandler(async (req, res, next) => {
 
         try {
             const result = await cloudinary.v2.uploader.upload(req.file.path, {
-                folder: 'videostream-app', // Save files in a folder named lms
+                folder: 'videostream-app', // Save files in a folder named videostream-app
                 width: 250,
                 height: 250,
                 gravity: 'faces', // This option tells cloudinary to center the image around detected faces (if any) after  cropping or resizing the original image
