@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { addEpisodesToMovieById, createMovies, getAllMovies, getEpisodesByCourseId, removeEpisodesByMovieId } from "../controllers/movie.controller.js";
-import { authorizedRoles, authorizedSubscriber, isLoggedIn } from "../middlewares/auth.middleware";
+import { authorizedRoles, authorizedSubscriber, isLoggedIn } from "../middlewares/auth.middleware.js";
 import upload from "../middlewares/multer.middleware.js";
 const router=Router();
 router.get("/",getAllMovies);
