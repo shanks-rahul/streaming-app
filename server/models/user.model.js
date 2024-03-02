@@ -56,8 +56,8 @@ UserSchema.pre('save',async function(next){
 });
 
 UserSchema.methods = {
-    comparePassword: async function(password){
-        return await bycrypt.compare(password,this.password);
+    comparePassword: async function(plainPassword){
+        return await bycrypt.compare(plainPassword,this.password);
     },
     generateJWTtoken: async function(){
         return await jwt.sign(

@@ -79,12 +79,12 @@ export const login = asyncHandler(async (req, res, next) => {
     if (!email || !password) {
         return next(new AppError("All Fields are required", 400));
     }
-    const user = await User.findOne({ email }).select(+password);
+    const user = await User.findOne({ email }).select("+password");
 
     if (!(user && (await user.comparePassword(password)))) {
         return next(new AppError("user does not exist or password does not match", 400));
     }
-    const token = await User.generateJWTtoken();
+    const token = await user.generateJWTtoken();
     user.password = undefined;
     res.cookie("token", token, cookieOptions);
     res.status(200).json({
@@ -122,7 +122,7 @@ export const forgotPassword = asyncHandler(async (req, res, next) => {
     if (!user) {
         return nexxt(new AppError("User is not registered", 401));
     }
-    const resetToken = await User.generatePasswordResetToken();
+    const resetToken = await user.generatePasswordResetToken();
 
     const resetUrl = c`${process.env.FRONTEND_URL}/reset-password/${resetToken}`;
     const subject = 'Reset Password';
@@ -184,7 +184,7 @@ export const changePassword = asyncHandler(async (req, res, next) => {
     if (!user) {
         return next(new AppError('Invalid user id or user does not exist', 400));
     }
-    const isPasswordValid = await User.comparePassword(oldPassword);
+    const isPasswordValid = await user.comparePassword(oldPassword);
     if (!isPasswordValid) {
         return next(new AppError('Invalid old password', 501));
     }
